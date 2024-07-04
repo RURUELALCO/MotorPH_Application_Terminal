@@ -14,15 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.Timer;
-import javax.swing.table.DefaultTableModel;
 
 public class EmployeeProfile extends javax.swing.JPanel {
 
@@ -97,21 +89,21 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 
                
  
-    
-    class Database {
-    public static Connection getConnection() {
-        String url = "jdbc:postgresql://localhost:5432/Userlogin"; // Change to your database URL
-        String user = "admin"; // Change to your database username
-        String password = "123456789"; // Change to your database password
-
-        try {
-            return DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-}
+//    * <<<<<<<<<<<<<<<<<<< NEVER USED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//    class Database {
+//    public static Connection getConnection() {
+//        String url = "jdbc:postgresql://localhost:5432/Userlogin"; // Change to your database URL
+//        String user = "postgres"; // Change to your database username
+//        String password = "1234"; // Change to your database password
+//
+//        try {
+//            return DriverManager.getConnection(url, user, password);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
+//}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -152,6 +144,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
         start_date = new javax.swing.JTextField();
         work_status = new javax.swing.JTextField();
         position = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         ph_allowance = new javax.swing.JTextField();
         clo_allowance = new javax.swing.JTextField();
         rateperhour = new javax.swing.JTextField();
@@ -164,7 +157,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         panelmove = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1363, 1262));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -374,6 +367,11 @@ public class EmployeeProfile extends javax.swing.JPanel {
         });
         ViewRecordsPanel.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 320, 220, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 60)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\smollogo.png")); // NOI18N
+        jLabel3.setText("Employee Profile");
+        ViewRecordsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 880, 100));
+
         ph_allowance.setEditable(false);
         ph_allowance.setFocusable(false);
         ViewRecordsPanel.add(ph_allowance, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 120, -1));
@@ -450,12 +448,8 @@ public class EmployeeProfile extends javax.swing.JPanel {
         jLabel2.setText("MotorPH");
         ViewRecordsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 620, -1, -1));
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\MotorPH LOGO.png")); // NOI18N
-        jLabel3.setOpaque(true);
-        ViewRecordsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -210, 1700, 1360));
+        Background.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\Elements blob (3).png")); // NOI18N
+        ViewRecordsPanel.add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(ViewRecordsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1363, 899));
     }// </editor-fold>//GEN-END:initComponents
@@ -525,6 +519,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JPanel ViewRecordsPanel;
     private javax.swing.JTextArea address;
     private javax.swing.JButton backButton;

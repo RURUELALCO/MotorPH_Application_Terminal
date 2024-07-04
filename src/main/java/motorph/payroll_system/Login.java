@@ -106,6 +106,7 @@ public class Login extends javax.swing.JFrame {
 
     public class GlobalVariables {
         public static String employeenumber;
+        public static String firstname;
         private String access;
             }
     @SuppressWarnings("unchecked")

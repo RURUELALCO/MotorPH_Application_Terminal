@@ -889,7 +889,7 @@ public void loadEmployeeData() {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 60)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\smollogo.png")); // NOI18N
-        jLabel2.setText("New Employee Form");
+        jLabel2.setText("Employee Form");
         CreateEmployeePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 880, 100));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
