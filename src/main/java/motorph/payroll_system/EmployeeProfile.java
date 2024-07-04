@@ -509,12 +509,18 @@ public class EmployeeProfile extends javax.swing.JPanel {
     }//GEN-LAST:event_basicpayActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        
+        // NOT WORKING YET, WANT TO ADD BACK BUTTON TO DASHBOARD BUT CAN'T FIND WHERE IT IS - JANE
         this.hide();
         MainPageEMployee frm = new MainPageEMployee();
         setVisible(true);
         MainPageEMployee.getFrames();
         
+        MainPage backPage = new MainPage();
+        setVisible(true);
+        MainPage.getFrames();
+        
+        JOptionPane.showMessageDialog(null, "Jane wants to turn this to a /[ Back to dashboard /] button but she can't find the dashboard class. " + "\n ๐·°(⋟﹏⋞)°·๐ ");
+ 
     }//GEN-LAST:event_backButtonActionPerformed
 
 

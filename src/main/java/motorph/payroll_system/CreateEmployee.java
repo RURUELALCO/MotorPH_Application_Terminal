@@ -529,7 +529,6 @@ public void loadEmployeeData() {
         addmaritalstatus = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         employeeTable = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -544,6 +543,9 @@ public void loadEmployeeData() {
         addfirstname1 = new javax.swing.JTextField();
         phonenumber = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jScrollPane2.setViewportView(list);
 
@@ -568,64 +570,64 @@ public void loadEmployeeData() {
         CreateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel32.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel32.setText("Employee ID:");
-        CreateEmployeePanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jLabel32.setText("Employee ID");
+        CreateEmployeePanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 200, 290, -1));
 
         jLabel33.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel33.setText("First Name:");
-        CreateEmployeePanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jLabel33.setText("First Name");
+        CreateEmployeePanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         jLabel34.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel34.setText("Last Name:");
-        CreateEmployeePanel.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jLabel34.setText("Last Name");
+        CreateEmployeePanel.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel35.setText("Middle Initial:");
-        CreateEmployeePanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 20));
+        jLabel35.setText("Middle Initial");
+        CreateEmployeePanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, 20));
 
         jLabel36.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel36.setText("Date of Birth:");
-        CreateEmployeePanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
+        CreateEmployeePanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel37.setText("Sex:");
-        CreateEmployeePanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+        CreateEmployeePanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
         jLabel38.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel38.setText("Marital Status:");
-        CreateEmployeePanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        jLabel38.setText("Marital Status");
+        CreateEmployeePanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
 
         jLabel39.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel39.setText("Address:");
-        CreateEmployeePanel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 40));
+        jLabel39.setText("Address Line");
+        CreateEmployeePanel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 40));
 
         grossMonthly.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 grossMonthlyActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(grossMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, 160, -1));
+        CreateEmployeePanel.add(grossMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 160, -1));
 
         addaddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addaddressActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 510, -1));
+        CreateEmployeePanel.add(addaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 480, -1));
 
         middleinitial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 middleinitialActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(middleinitial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 160, -1));
+        CreateEmployeePanel.add(middleinitial, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 160, -1));
 
         addlastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addlastnameActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addlastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 160, -1));
+        CreateEmployeePanel.add(addlastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 160, -1));
 
         ShowEmployeeNumber.setFocusable(false);
         ShowEmployeeNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -633,128 +635,128 @@ public void loadEmployeeData() {
                 ShowEmployeeNumberActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(ShowEmployeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 260, -1));
-        CreateEmployeePanel.add(addstartdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, 160, 30));
+        CreateEmployeePanel.add(ShowEmployeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 200, 310, -1));
+        CreateEmployeePanel.add(addstartdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 650, 160, -1));
 
         Female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FemaleActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
+        CreateEmployeePanel.add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel1.setText("Female");
-        CreateEmployeePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, 20));
+        CreateEmployeePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, 20));
 
         jLabel41.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel41.setText("Male");
-        CreateEmployeePanel.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, 20));
+        CreateEmployeePanel.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, -1, 20));
 
         Male1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Male1ActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(Male1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
+        CreateEmployeePanel.add(Male1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, -1, -1));
 
         addstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regular", "Probationary" }));
-        CreateEmployeePanel.add(addstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, 160, -1));
+        CreateEmployeePanel.add(addstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 620, 160, 30));
 
         jLabel42.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        jLabel42.setText("Phone #:");
-        CreateEmployeePanel.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 40));
+        jLabel42.setText("Contact Details (Phone Number)");
+        CreateEmployeePanel.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, 40));
 
         jLabel43.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel43.setText("TIN #:");
-        CreateEmployeePanel.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, -1, 30));
+        jLabel43.setText("TIN Number");
+        CreateEmployeePanel.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, -1, 40));
 
         jLabel44.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel44.setText("SSS #:");
-        CreateEmployeePanel.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, -1, 30));
+        jLabel44.setText("SSS Number");
+        CreateEmployeePanel.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, 40));
 
         jLabel45.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel45.setText("Pag-ibig #:");
-        CreateEmployeePanel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 540, -1, 30));
+        jLabel45.setText("Pag-Ibig Number");
+        CreateEmployeePanel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 620, -1, 40));
 
         jLabel46.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel46.setText("PhilHealth #:");
-        CreateEmployeePanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 590, -1, 30));
+        jLabel46.setText("PhilHealth Number");
+        CreateEmployeePanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 660, -1, 30));
 
         addtin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addtinActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addtin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 550, 160, -1));
+        CreateEmployeePanel.add(addtin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 160, -1));
 
         addsss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addsssActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addsss, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 590, 160, -1));
+        CreateEmployeePanel.add(addsss, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 600, 160, -1));
 
         addpagibig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addpagibigActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addpagibig, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 540, 160, -1));
+        CreateEmployeePanel.add(addpagibig, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 630, 160, -1));
 
         jLabel40.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel40.setText("Position:");
-        CreateEmployeePanel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, -1, 20));
+        CreateEmployeePanel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 570, -1, 20));
 
         jLabel47.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel47.setText("Status:");
-        CreateEmployeePanel.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, -1, 40));
+        CreateEmployeePanel.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 610, -1, 40));
 
         jLabel48.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel48.setText("Start Date:");
-        CreateEmployeePanel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, -1, -1));
+        CreateEmployeePanel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 660, -1, -1));
 
         addphilhealth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addphilhealthActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addphilhealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 590, 160, -1));
+        CreateEmployeePanel.add(addphilhealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 660, 160, -1));
 
         addposition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addpositionActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addposition, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, 160, 30));
-        CreateEmployeePanel.add(addbirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, 30));
+        CreateEmployeePanel.add(addposition, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 160, -1));
+        CreateEmployeePanel.add(addbirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 160, 20));
 
         jLabel49.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel49.setText("PH Allow:");
-        CreateEmployeePanel.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, 30));
+        jLabel49.setText("Allowance:");
+        CreateEmployeePanel.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, -1, 30));
 
         jLabel50.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel50.setText("Supervisor:");
-        CreateEmployeePanel.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, -1, 30));
+        jLabel50.setText("Supervisor");
+        CreateEmployeePanel.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, 80, 30));
 
         jLabel51.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel51.setText("Personal Information:");
-        CreateEmployeePanel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 30));
+        jLabel51.setText("Personal Information");
+        CreateEmployeePanel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 30));
 
         jLabel52.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel52.setText("Rice Allow:");
-        CreateEmployeePanel.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 90, 30));
+        jLabel52.setText("Rice Allowance");
+        CreateEmployeePanel.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 130, 30));
 
         jLabel53.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel53.setText("CLO Allow:");
-        CreateEmployeePanel.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 540, -1, 30));
+        jLabel53.setText("CLO Allowance");
+        CreateEmployeePanel.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 660, 120, 30));
 
         addsupervisor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addsupervisorActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addsupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 370, 230, -1));
+        CreateEmployeePanel.add(addsupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 596, 160, -1));
 
         addbasicsalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -766,24 +768,24 @@ public void loadEmployeeData() {
                 addbasicsalaryPropertyChange(evt);
             }
         });
-        CreateEmployeePanel.add(addbasicsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 160, -1));
+        CreateEmployeePanel.add(addbasicsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 160, -1));
 
         addrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addriceActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 160, -1));
+        CreateEmployeePanel.add(addrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 630, 160, -1));
 
         addcloth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addclothActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addcloth, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 160, -1));
+        CreateEmployeePanel.add(addcloth, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 660, 160, -1));
 
         addmaritalstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married" }));
-        CreateEmployeePanel.add(addmaritalstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 160, -1));
+        CreateEmployeePanel.add(addmaritalstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 160, -1));
 
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -804,54 +806,45 @@ public void loadEmployeeData() {
         employeeTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(employeeTable);
 
-        CreateEmployeePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 470, 130));
-
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile.jpg"))); // NOI18N
-        jButton10.setText("You");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        CreateEmployeePanel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 180, 160, 150));
+        CreateEmployeePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 260, 310, 270));
 
         jLabel54.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel54.setText("Basic Pay:");
-        CreateEmployeePanel.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, 30));
+        CreateEmployeePanel.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, -1, 30));
 
         jLabel55.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel55.setText("Pay Net Information:");
-        CreateEmployeePanel.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, 30));
+        jLabel55.setText("Financial Compensation Details");
+        CreateEmployeePanel.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, 30));
 
         jLabel56.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel56.setText("Job Status:");
         CreateEmployeePanel.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, -1, 30));
 
         jLabel57.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel57.setText("Gov IDs:");
-        CreateEmployeePanel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, -1, 30));
+        jLabel57.setText("Government Information");
+        CreateEmployeePanel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, 30));
 
         jLabel58.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel58.setText("Gross Semi-monthly Rate:");
-        CreateEmployeePanel.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, 30));
+        jLabel58.setText("Gross Semi-monthly Rate");
+        CreateEmployeePanel.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 560, -1, 30));
 
         jLabel29.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel29.setText("Rate per hour:");
-        CreateEmployeePanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, -1, 30));
+        CreateEmployeePanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, 30));
 
         addphone1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addphone1ActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addphone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, 160, -1));
+        CreateEmployeePanel.add(addphone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 160, -1));
 
         rateperhour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rateperhourActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(rateperhour, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 160, -1));
+        CreateEmployeePanel.add(rateperhour, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 160, -1));
 
         save.setBackground(new java.awt.Color(255, 51, 51));
         save.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -862,7 +855,7 @@ public void loadEmployeeData() {
                 saveActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 460, 120, -1));
+        CreateEmployeePanel.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 640, 120, -1));
 
         delete.setBackground(new java.awt.Color(255, 51, 51));
         delete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -873,7 +866,7 @@ public void loadEmployeeData() {
                 deleteActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 690, 360, -1));
+        CreateEmployeePanel.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 640, 120, -1));
 
         edit1.setBackground(new java.awt.Color(255, 51, 51));
         edit1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -884,36 +877,59 @@ public void loadEmployeeData() {
                 edit1ActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(edit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 690, 360, -1));
+        CreateEmployeePanel.add(edit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 640, 120, -1));
 
         addfirstname1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addfirstname1ActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 160, -1));
-        CreateEmployeePanel.add(phonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 200, -1));
+        CreateEmployeePanel.add(addfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 160, -1));
+        CreateEmployeePanel.add(phonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 200, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 60)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\smollogo.png")); // NOI18N
         jLabel2.setText("New Employee Form");
         CreateEmployeePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 880, 100));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 230, 230));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\Elements blob (Facebook Cover) (2).png")); // NOI18N
+        CreateEmployeePanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -250, 1080, 570));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\Elements blob (Facebook Cover) (2).png")); // NOI18N
+        CreateEmployeePanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, 490));
+
+        jPanel1.setBackground(new java.awt.Color(246, 232, 232));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 950, Short.MAX_VALUE)
+        );
+
+        CreateEmployeePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, -120, 220, 950));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1334, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -983,10 +999,6 @@ public void loadEmployeeData() {
     private void addclothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addclothActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addclothActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void addphone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addphone1ActionPerformed
         // TODO add your handling code here:
@@ -1310,10 +1322,10 @@ public void loadEmployeeData() {
     private javax.swing.JButton edit1;
     private javax.swing.JTable employeeTable;
     private javax.swing.JTextField grossMonthly;
-    private javax.swing.JButton jButton10;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -1322,6 +1334,7 @@ public void loadEmployeeData() {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1341,6 +1354,7 @@ public void loadEmployeeData() {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> list;
