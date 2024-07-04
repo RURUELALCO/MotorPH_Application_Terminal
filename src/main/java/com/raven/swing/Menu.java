@@ -4,10 +4,7 @@
  */
 package com.raven.swing;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class Menu extends javax.swing.JPanel {
 
     /**

@@ -9,10 +9,7 @@ import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class MenuAnimation {
     
         public static void showMenu(Component component, MenuItem item, MigLayout layout, boolean show){

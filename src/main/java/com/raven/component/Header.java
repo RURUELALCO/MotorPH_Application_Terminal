@@ -10,10 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class Header extends javax.swing.JPanel {
 
     /**
@@ -43,6 +40,7 @@ protected void paintComponent(Graphics grphcs) {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(237, 237, 237));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\smollogo.png")); // NOI18N
         jLabel1.setText("MotorPH");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -52,11 +50,11 @@ protected void paintComponent(Graphics grphcs) {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

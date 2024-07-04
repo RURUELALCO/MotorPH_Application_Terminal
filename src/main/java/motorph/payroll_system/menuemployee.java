@@ -11,7 +11,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Rectangle2D;
 import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,10 +18,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class menuemployee extends JComponent{
 
     /**

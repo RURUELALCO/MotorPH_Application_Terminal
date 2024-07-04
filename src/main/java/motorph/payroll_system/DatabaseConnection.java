@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DatabaseConnection {
 
     // Database connection URL
-    private static final String URL = "jdbc:postgresql://localhost:5432/Userlogin";  
-    private static final String USER = "admin";
-    private static final String PASSWORD = "123456789";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Database";  
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "1234";
     private static Connection connection; // Declare connection as a static field
 
    // Method to establish a connection to the database
@@ -42,4 +42,6 @@ public class DatabaseConnection {
             e.printStackTrace(); // Log exception stack trace
         }
     }
+    
+    
 }

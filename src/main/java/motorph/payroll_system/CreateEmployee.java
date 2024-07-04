@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+
+
 package motorph.payroll_system;
 
 import com.toedter.calendar.JDateChooser;
@@ -43,10 +45,7 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
-/**
- *
- * @author Ruel Rey
- */
+
 public class CreateEmployee extends javax.swing.JPanel {
 
     
@@ -151,7 +150,7 @@ public class CreateEmployee extends javax.swing.JPanel {
                      showEmployeeDetails(empNumber);
                     } catch (NumberFormatException ex) {
                        // Handle the case where the input is not a valid integer
-                JOptionPane.showMessageDialog(null, "Invalid employee number. Please enter a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Oops! You entered an Invalid Employee Number." + "\n Please check if you entered the right number.", "Error", JOptionPane.ERROR_MESSAGE);
                 } catch (SQLException ex) {
                     Logger.getLogger(CreateEmployee.class.getName()).log(Level.SEVERE, null, ex);
                      }
@@ -220,7 +219,6 @@ public class CreateEmployee extends javax.swing.JPanel {
               addcloth.setEditable(false);
             
         } else {
-            search1.setVisible(true);
             delete.setVisible(true);
             save.setVisible(true);
         }
@@ -228,7 +226,7 @@ public class CreateEmployee extends javax.swing.JPanel {
 
 
     public void loadLastEmployeeNumber() {
-        String sql = "SELECT \"EmployeeNo\" FROM login.\"EmployeeDetails\" ORDER BY \"EmployeeNo\" DESC LIMIT 1";
+        String sql = "SELECT \"employeeno\" FROM \"employeedetails\" ORDER BY \"employeeno\" DESC LIMIT 1";
 
         try (Connection connection = DatabaseConnection.connect();
              PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -255,7 +253,7 @@ public void loadEmployeeData() {
     DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
     model.setRowCount(0); // Clear existing rows
 
-    String sql = "SELECT * FROM login.\"EmployeeDetails\""; 
+    String sql = "SELECT * FROM \"employeedetails\""; 
 
     try (Connection connection = DatabaseConnection.connect();
          PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -280,14 +278,14 @@ public void loadEmployeeData() {
             Double clothingAllowance = rs.getDouble("clothing_allowance");
             Double riceSubsidy = rs.getDouble("rice_subsidy");
             Double phoneAllowance = rs.getDouble("phone_allowance");
-            Double GrossSemimonthlyRate = rs.getDouble("GrossSemimonthlyRate");
+            Double grosssemimonthlyrate = rs.getDouble("grosssemimonthlyrate");
             Double HourlyRate = rs.getDouble("HourlyRate");
            
 
             model.addRow(new Object[]{
                 employeeNumber, firstName, lastName, birthday, address, phoneNumber, tinNumber, sssNumber, pagIbigNumber, philhealthNumber, 
                  currentPosition, status, immediateSupervisor, 
-                basicSalary, clothingAllowance, riceSubsidy, phoneAllowance, GrossSemimonthlyRate, HourlyRate
+                basicSalary, clothingAllowance, riceSubsidy, phoneAllowance, grosssemimonthlyrate, HourlyRate
             });
         }
 
@@ -321,7 +319,7 @@ public void loadEmployeeData() {
             return;
         }
 
-        String sql = "SELECT * FROM login.\"EmployeeDetails\" WHERE \"EmployeeNo\" = ?";
+        String sql = "SELECT * FROM \"employeedetails\" WHERE \"employeeno\" = ?";
 
         try (Connection connection = DatabaseConnection.connect();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -349,7 +347,7 @@ public void loadEmployeeData() {
     
     private void showEmployeeDetails(int empNumber) throws SQLException {
         try (Connection connection = DatabaseConnection.connect()) {
-           String sql = "SELECT * FROM login.\"EmployeeDetails\" WHERE \"EmployeeNo\" = ?";
+           String sql = "SELECT * FROM \"employeedetails\" WHERE \"employeeno\" = ?";
             
             try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                 pstmt.setInt(1, empNumber);
@@ -381,7 +379,7 @@ public void loadEmployeeData() {
                     addcloth.setText(rs.getString("clothing_allowance"));
                     addrice.setText(rs.getString("rice_subsidy"));
                     addphone1.setText(rs.getString("phone_allowance"));   
-                    grossMonthly.setText(rs.getString("GrossSemimonthlyRate"));
+                    grossMonthly.setText(rs.getString("grosssemimonthlyrate"));
                     rateperhour.setText(rs.getString("HourlyRate"));
        
                     
@@ -410,7 +408,7 @@ public void loadEmployeeData() {
     // Generate a random password
     String randomPassword = generateRandomPassword(10); // You can adjust the length of the password
     
-    String sql = "INSERT INTO login.\"login_credentials\"(\n" +
+    String sql = "INSERT INTO \"login_credentials\"(\n" +
                  "    \"employeeno\", password, access)\n" +
                  "    VALUES (?, ?, ?);";
 
@@ -435,7 +433,7 @@ public void loadEmployeeData() {
 
     } catch (NumberFormatException e) {
         // Handle the case where the text cannot be parsed to an integer
-        JOptionPane.showMessageDialog(null, "Invalid employee number. Please enter a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,  "Oops! You entered an Invalid Employee Number." + "\n Please check if you entered the right number.", "Error", JOptionPane.ERROR_MESSAGE);
     } catch (SQLException ex) {
         Logger.getLogger(CreateEmployeeRecord.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -449,7 +447,7 @@ public void loadEmployeeData() {
         int employeeNumber = Integer.parseInt(employeeNumberInput);
 
         // Create a SQL DELETE statement to remove the record from the database
-        String sql = "DELETE FROM login.\"login_credentials\" WHERE \"employeeno\" = ?";
+        String sql = "DELETE FROM \"login_credentials\" WHERE \"employeeno\" = ?";
 
         // Connect to the database and execute the DELETE statement
         try (Connection connection = DatabaseConnection.connect();
@@ -470,7 +468,7 @@ public void loadEmployeeData() {
             }
         }
     } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Please enter a valid employee number.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this,  "Oops! You entered an Invalid Employee Number." + "\n Please check if you entered the right number.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(this, "An error occurred while deleting the record: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -486,7 +484,6 @@ public void loadEmployeeData() {
         list = new javax.swing.JList<>();
         menu = new javax.swing.JPopupMenu();
         CreateEmployeePanel = new javax.swing.JPanel();
-        search1 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -544,9 +541,9 @@ public void loadEmployeeData() {
         save = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         edit1 = new javax.swing.JButton();
-        txt = new javax.swing.JTextField();
         addfirstname1 = new javax.swing.JTextField();
         phonenumber = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         jScrollPane2.setViewportView(list);
 
@@ -563,22 +560,12 @@ public void loadEmployeeData() {
 
         menu.setFocusable(false);
 
-        CreateEmployeePanel.setBackground(new java.awt.Color(240, 240, 240));
+        CreateEmployeePanel.setBackground(new java.awt.Color(255, 255, 255));
+        CreateEmployeePanel.setForeground(new java.awt.Color(255, 255, 255));
         CreateEmployeePanel.setMaximumSize(new java.awt.Dimension(740, 694));
         CreateEmployeePanel.setMinimumSize(new java.awt.Dimension(740, 694));
         CreateEmployeePanel.setPreferredSize(new java.awt.Dimension(740, 694));
         CreateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        search1.setBackground(new java.awt.Color(255, 51, 51));
-        search1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        search1.setForeground(new java.awt.Color(255, 255, 255));
-        search1.setText("Search");
-        search1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search1ActionPerformed(evt);
-            }
-        });
-        CreateEmployeePanel.add(search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, 170, -1));
 
         jLabel32.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel32.setText("Employee ID:");
@@ -586,7 +573,7 @@ public void loadEmployeeData() {
 
         jLabel33.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel33.setText("First Name:");
-        CreateEmployeePanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        CreateEmployeePanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         jLabel34.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel34.setText("Last Name:");
@@ -602,7 +589,7 @@ public void loadEmployeeData() {
 
         jLabel37.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel37.setText("Sex:");
-        CreateEmployeePanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        CreateEmployeePanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
         jLabel38.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         jLabel38.setText("Marital Status:");
@@ -646,7 +633,7 @@ public void loadEmployeeData() {
                 ShowEmployeeNumberActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(ShowEmployeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 160, -1));
+        CreateEmployeePanel.add(ShowEmployeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 260, -1));
         CreateEmployeePanel.add(addstartdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, 160, 30));
 
         Female.addActionListener(new java.awt.event.ActionListener() {
@@ -752,7 +739,7 @@ public void loadEmployeeData() {
 
         jLabel51.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel51.setText("Personal Information:");
-        CreateEmployeePanel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 30));
+        CreateEmployeePanel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 30));
 
         jLabel52.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel52.setText("Rice Allow:");
@@ -817,15 +804,16 @@ public void loadEmployeeData() {
         employeeTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(employeeTable);
 
-        CreateEmployeePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1360, 130));
+        CreateEmployeePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 470, 130));
 
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile.jpg"))); // NOI18N
         jButton10.setText("You");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 180, 210, 150));
+        CreateEmployeePanel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 180, 160, 150));
 
         jLabel54.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel54.setText("Basic Pay:");
@@ -874,7 +862,7 @@ public void loadEmployeeData() {
                 saveActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 690, 360, -1));
+        CreateEmployeePanel.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 460, 120, -1));
 
         delete.setBackground(new java.awt.Color(255, 51, 51));
         delete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -898,35 +886,34 @@ public void loadEmployeeData() {
         });
         CreateEmployeePanel.add(edit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 690, 360, -1));
 
-        txt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActionPerformed(evt);
-            }
-        });
-        txt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtKeyReleased(evt);
-            }
-        });
-        CreateEmployeePanel.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 740, -1));
-
         addfirstname1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addfirstname1ActionPerformed(evt);
             }
         });
-        CreateEmployeePanel.add(addfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 160, -1));
+        CreateEmployeePanel.add(addfirstname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 160, -1));
         CreateEmployeePanel.add(phonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 200, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 60)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\smollogo.png")); // NOI18N
+        jLabel2.setText("New Employee Form");
+        CreateEmployeePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 880, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1363, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1334, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(CreateEmployeePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1001,10 +988,6 @@ public void loadEmployeeData() {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
-
-    }//GEN-LAST:event_search1ActionPerformed
-
     private void addphone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addphone1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addphone1ActionPerformed
@@ -1045,7 +1028,7 @@ public void loadEmployeeData() {
         Double riceSubsidy = Double.valueOf(addrice.getText().trim());
         Double phoneAllowance = Double.valueOf(phonenumber.getText().trim());
         
-        Double GrossSemimonthlyRate = Double.valueOf(grossMonthly.getText().trim());
+        Double grosssemimonthlyrate = Double.valueOf(grossMonthly.getText().trim());
         Double HourlyRate = Double.valueOf(rateperhour.getText().trim());
 
         // Create an instance of CreateEmployeeRecord with the retrieved information
@@ -1053,7 +1036,7 @@ public void loadEmployeeData() {
                 
             employeenumber, lastName, firstName, birthday, address, phoneNumber, currentPosition, status, 
             tinNumber, pagIbigNumber, philhealthNumber, sssNumber, immediateSupervisor, 
-            basicSalary, clothingAllowance, riceSubsidy, phoneAllowance, GrossSemimonthlyRate, HourlyRate
+            basicSalary, clothingAllowance, riceSubsidy, phoneAllowance, grosssemimonthlyrate, HourlyRate
         );
 
         // Add the employee details to the database
@@ -1098,7 +1081,7 @@ public void loadEmployeeData() {
 
         if (response == JOptionPane.YES_OPTION) {
             // Create a SQL DELETE statement to remove the record from the database
-            String sql = "DELETE FROM login.\"EmployeeDetails\" WHERE \"EmployeeNo\" = ?";
+            String sql = "DELETE FROM employeedetails WHERE \"employeeno\" = ?";
 
             // Connect to the database and execute the DELETE statement
             try (Connection connection = DatabaseConnection.connect();
@@ -1165,7 +1148,7 @@ public void loadEmployeeData() {
         Double clothingAllowance = Double.valueOf(addcloth.getText().trim());
         Double riceSubsidy = Double.valueOf(addrice.getText().trim());
         Double phoneAllowance = Double.valueOf(phonenumber.getText().trim());
-        Double GrossSemimonthlyRate = Double.valueOf(grossMonthly.getText().trim());
+        Double grosssemimonthlyrate = Double.valueOf(grossMonthly.getText().trim());
         Double HourlyRate = Double.valueOf(rateperhour.getText().trim());
 
         // Show a confirmation dialog
@@ -1178,7 +1161,7 @@ public void loadEmployeeData() {
                          "\"current_position\" = ?, \"status\" = ?, \"tin_number\" = ?, \"pag_ibig_number\" = ?, " +
                          "\"philhealth_number\" = ?, \"sss_number\" = ?, \"immediate_supervisor\" = ?, " +
                          "\"basic_salary\" = ?, \"clothing_allowance\" = ?, \"rice_subsidy\" = ?, \"phone_allowance\" = ?, " +
-                         "\"GrossSemimonthlyRate\" = ?, \"HourlyRate\" = ? WHERE \"EmployeeNo\" = ?";
+                         "\"grosssemimonthlyrate\" = ?, \"HourlyRate\" = ? WHERE \"employeeno\" = ?";
 
             try (Connection connection = DatabaseConnection.connect();
                  PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -1200,7 +1183,7 @@ public void loadEmployeeData() {
                 statement.setDouble(14, clothingAllowance);
                 statement.setDouble(15, riceSubsidy);
                 statement.setDouble(16, phoneAllowance);
-                statement.setDouble(17, GrossSemimonthlyRate);
+                statement.setDouble(17, grosssemimonthlyrate);
                 statement.setDouble(18, HourlyRate);
                 statement.setInt(19, employeenumber);
 
@@ -1232,19 +1215,6 @@ public void loadEmployeeData() {
      
         
     }//GEN-LAST:event_edit1ActionPerformed
-
-    private void txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtActionPerformed
-
-    private void txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyReleased
-        String search = txt.getText().trim();
-        if(!search.equals("")){
-            System.out.print(search);
-            menu.show(txt, 0, txt.getHeight());
-        }
-
-    }//GEN-LAST:event_txtKeyReleased
 
     private void addfirstname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addfirstname1ActionPerformed
         // TODO add your handling code here:
@@ -1342,6 +1312,7 @@ public void loadEmployeeData() {
     private javax.swing.JTextField grossMonthly;
     private javax.swing.JButton jButton10;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -1379,8 +1350,6 @@ public void loadEmployeeData() {
     private javax.swing.JTextField phonenumber;
     private javax.swing.JTextField rateperhour;
     private javax.swing.JButton save;
-    private javax.swing.JButton search1;
-    private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 
    

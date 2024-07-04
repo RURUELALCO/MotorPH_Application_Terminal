@@ -10,10 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class PanelBorder1 extends javax.swing.JPanel {
 
     /**

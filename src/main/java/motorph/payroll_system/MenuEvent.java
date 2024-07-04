@@ -4,10 +4,7 @@
  */
 package motorph.payroll_system;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public interface MenuEvent {
     
     public void selected(int index, int subIndex);

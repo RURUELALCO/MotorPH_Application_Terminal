@@ -6,6 +6,9 @@ package motorph.payroll_system;
 
 
 
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,10 +23,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author Ruel Rey
- */
+
 public class EmployeeProfile extends javax.swing.JPanel {
 
     private final String employeenumber;
@@ -35,7 +35,9 @@ public class EmployeeProfile extends javax.swing.JPanel {
     System.out.println("this is: " + this.employeenumber);
     
     try (Connection connection = DatabaseConnection.connect()) {
-    String sql = "SELECT * FROM login.\"EmployeeDetails\" WHERE \"EmployeeNo\" = ?";
+        
+        //date 07272024 23:13 \"___"\ is not necessary. (But it does add readability)
+    String sql = "SELECT * FROM \"employeedetails\" WHERE \"employeeno\" = ?";
     
     try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
         long employeeNumber = Long.parseLong(employeenumber);
@@ -65,12 +67,24 @@ public class EmployeeProfile extends javax.swing.JPanel {
             clo_allowance.setText(rs.getString("clothing_allowance"));
             rice_subsidy1.setText(rs.getString("rice_subsidy"));
             ph_allowance.setText(rs.getString("phone_allowance"));
-            grossMonthly.setText(rs.getString("GrossSemimonthlyRate"));
+            grossMonthly.setText(rs.getString("grosssemimonthlyrate"));
             rateperhour .setText(rs.getString("HourlyRate"));       
             
         } else {
             JOptionPane.showMessageDialog(null, "Employee not found.");
         }
+        
+        backButton.addMouseListener(new MouseAdapter() {
+            
+            public void mouseEntered(MouseEvent e) {
+                backButton.setForeground(Color.white);    
+            }
+            
+            public void mouseClicked(MouseEvent e) {
+                backButton.setForeground(Color.white);
+               
+            }
+        });
     }
 } catch (SQLException ex) {
     ex.printStackTrace();
@@ -126,7 +140,6 @@ public class EmployeeProfile extends javax.swing.JPanel {
         sss_no = new javax.swing.JTextField();
         tax_no = new javax.swing.JTextField();
         contact_number = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -147,17 +160,24 @@ public class EmployeeProfile extends javax.swing.JPanel {
         grossMonthly = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        panelmove = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        ViewRecordsPanel.setBackground(new java.awt.Color(240, 240, 240));
+        setPreferredSize(new java.awt.Dimension(1363, 1262));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ViewRecordsPanel.setBackground(new java.awt.Color(255, 255, 255));
         ViewRecordsPanel.setMaximumSize(new java.awt.Dimension(730, 694));
         ViewRecordsPanel.setMinimumSize(new java.awt.Dimension(730, 694));
         ViewRecordsPanel.setPreferredSize(new java.awt.Dimension(730, 694));
         ViewRecordsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel4.setText("Emp Number:");
-        ViewRecordsPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 30));
+        jLabel4.setText("Employee Number: ");
+        ViewRecordsPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 30));
 
         input_employeeNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,11 +189,11 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 input_employeeNumberPropertyChange(evt);
             }
         });
-        ViewRecordsPanel.add(input_employeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 150, -1));
+        ViewRecordsPanel.add(input_employeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 750, -1));
 
         jLabel27.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel27.setText("Employee Name:");
-        ViewRecordsPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 350, 20));
+        ViewRecordsPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 140, 20));
 
         employeename.setEditable(false);
         employeename.setFocusable(false);
@@ -182,15 +202,15 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 employeenameActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(employeename, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 410, -1));
+        ViewRecordsPanel.add(employeename, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 410, -1));
 
         jLabel12.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel12.setText("Birth Date:");
-        ViewRecordsPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 280, -1));
+        jLabel12.setText("Birthdate:");
+        ViewRecordsPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 80, -1));
 
         jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel11.setText("Sex:");
-        ViewRecordsPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 30));
+        ViewRecordsPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, -1, 30));
 
         sex1.setEditable(false);
         sex1.setFocusable(false);
@@ -199,7 +219,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 sex1ActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(sex1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 200, -1));
+        ViewRecordsPanel.add(sex1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 210, -1));
 
         dob1.setEditable(false);
         dob1.setFocusable(false);
@@ -208,15 +228,15 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 dob1ActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(dob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 410, -1));
+        ViewRecordsPanel.add(dob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 410, -1));
 
         jLabel10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel10.setText("Marital Status:");
-        ViewRecordsPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, 30));
+        ViewRecordsPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, 30));
 
         jLabel17.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel17.setText("Address:");
-        ViewRecordsPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 130, -1));
+        ViewRecordsPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 70, -1));
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -230,7 +250,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
         address.setFocusable(false);
         jScrollPane2.setViewportView(address);
 
-        ViewRecordsPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 600, 60));
+        ViewRecordsPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 760, 60));
 
         marital_status1.setEditable(false);
         marital_status1.setFocusable(false);
@@ -239,43 +259,43 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 marital_status1ActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(marital_status1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 200, -1));
+        ViewRecordsPanel.add(marital_status1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, -1));
 
         jLabel18.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel18.setText("Contact Number:");
-        ViewRecordsPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+        ViewRecordsPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel23.setText("TIN #:");
-        ViewRecordsPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+        jLabel23.setText("TIN No.");
+        ViewRecordsPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel24.setText("SSS #:");
-        ViewRecordsPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
+        jLabel24.setText("SSS No.");
+        ViewRecordsPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 60, -1));
 
         jLabel25.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel25.setText("HDMF #:");
-        ViewRecordsPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
+        jLabel25.setText("HDMF");
+        ViewRecordsPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 50, -1));
 
         jLabel26.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel26.setText("Philhealth #:");
-        ViewRecordsPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, -1, -1));
+        jLabel26.setText("PhilHealth");
+        ViewRecordsPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, -1, -1));
 
         philhealth_no.setEditable(false);
         philhealth_no.setFocusable(false);
-        ViewRecordsPanel.add(philhealth_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 200, -1));
+        ViewRecordsPanel.add(philhealth_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, 200, -1));
 
         hdmf_no.setEditable(false);
         hdmf_no.setFocusable(false);
-        ViewRecordsPanel.add(hdmf_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 200, -1));
+        ViewRecordsPanel.add(hdmf_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 200, -1));
 
         sss_no.setEditable(false);
         sss_no.setFocusable(false);
-        ViewRecordsPanel.add(sss_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 200, -1));
+        ViewRecordsPanel.add(sss_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, 200, -1));
 
         tax_no.setEditable(false);
         tax_no.setFocusable(false);
-        ViewRecordsPanel.add(tax_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 200, -1));
+        ViewRecordsPanel.add(tax_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 200, -1));
 
         contact_number.setEditable(false);
         contact_number.setFocusable(false);
@@ -284,48 +304,39 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 contact_numberActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(contact_number, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 200, -1));
-
-        jButton4.setText("You");
-        jButton4.setFocusable(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        ViewRecordsPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 250, 230));
+        ViewRecordsPanel.add(contact_number, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 200, -1));
 
         jLabel28.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel28.setText("Basic Pay:");
-        ViewRecordsPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, -1, 30));
+        ViewRecordsPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, -1, 30));
 
         jLabel29.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel29.setText("Rate per hour:");
-        ViewRecordsPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, -1, 30));
+        ViewRecordsPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 560, -1, 30));
 
         jLabel30.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel30.setText("CLO Allowance:");
-        ViewRecordsPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 690, -1, 30));
+        ViewRecordsPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 40));
 
         jLabel31.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel31.setText("PH Allowance:");
-        ViewRecordsPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, -1, 40));
+        ViewRecordsPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, -1, 40));
 
         jLabel13.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel13.setText("Position:");
-        ViewRecordsPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 470, -1, 30));
+        jLabel13.setText("Position");
+        ViewRecordsPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 340, -1, 30));
 
         jLabel14.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel14.setText("Status:");
-        ViewRecordsPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 510, 60, 30));
+        jLabel14.setText("Status");
+        ViewRecordsPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 400, 60, 30));
 
         jLabel15.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel15.setText("Start Date:");
-        ViewRecordsPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 550, -1, 30));
+        jLabel15.setText("Start Date");
+        ViewRecordsPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 460, -1, 30));
 
         jLabel16.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel16.setText("Supervisor:");
-        ViewRecordsPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 590, -1, 30));
+        jLabel16.setText("Supervisor");
+        ViewRecordsPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 520, -1, 30));
 
         supervisor.setEditable(false);
         supervisor.setFocusable(false);
@@ -334,7 +345,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 supervisorActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(supervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 590, 340, -1));
+        ViewRecordsPanel.add(supervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 500, 220, -1));
 
         start_date.setEditable(false);
         start_date.setFocusable(false);
@@ -343,7 +354,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 start_dateActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(start_date, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 550, 340, -1));
+        ViewRecordsPanel.add(start_date, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 440, 220, -1));
 
         work_status.setEditable(false);
         work_status.setFocusable(false);
@@ -352,7 +363,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 work_statusActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(work_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 510, 340, -1));
+        ViewRecordsPanel.add(work_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 380, 220, -1));
 
         position.setEditable(false);
         position.setFocusable(false);
@@ -361,19 +372,19 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 positionActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 470, 190, -1));
+        ViewRecordsPanel.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 320, 220, -1));
 
         ph_allowance.setEditable(false);
         ph_allowance.setFocusable(false);
-        ViewRecordsPanel.add(ph_allowance, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 650, 160, -1));
+        ViewRecordsPanel.add(ph_allowance, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 120, -1));
 
         clo_allowance.setEditable(false);
         clo_allowance.setFocusable(false);
-        ViewRecordsPanel.add(clo_allowance, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 690, 160, -1));
+        ViewRecordsPanel.add(clo_allowance, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 120, -1));
 
         rateperhour.setEditable(false);
         rateperhour.setFocusable(false);
-        ViewRecordsPanel.add(rateperhour, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 160, -1));
+        ViewRecordsPanel.add(rateperhour, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 560, 120, -1));
 
         basicpay.setEditable(false);
         basicpay.setFocusable(false);
@@ -382,52 +393,71 @@ public class EmployeeProfile extends javax.swing.JPanel {
                 basicpayActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(basicpay, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 160, -1));
+        ViewRecordsPanel.add(basicpay, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 120, -1));
 
         rice_subsidy1.setEditable(false);
         rice_subsidy1.setFocusable(false);
-        ViewRecordsPanel.add(rice_subsidy1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 650, 160, -1));
+        ViewRecordsPanel.add(rice_subsidy1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 120, -1));
 
         grossMonthly.setEditable(false);
         grossMonthly.setFocusable(false);
-        ViewRecordsPanel.add(grossMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, 220, -1));
+        ViewRecordsPanel.add(grossMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 530, 120, -1));
 
         jLabel32.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel32.setText("Rice Subsidy:");
-        ViewRecordsPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, -1, 30));
+        ViewRecordsPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, -1, 40));
 
         jLabel33.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel33.setText("Gross Semi-monthly Rate:");
-        ViewRecordsPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, 30));
+        ViewRecordsPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Proceed");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(255, 51, 51));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
-        ViewRecordsPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 720, 230, -1));
+        ViewRecordsPanel.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 650, 230, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1363, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(ViewRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1351, Short.MAX_VALUE)
-                    .addContainerGap()))
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\dp (1).png")); // NOI18N
+        jLabel1.setText(" ");
+        jLabel1.setMaximumSize(new java.awt.Dimension(93, 96));
+        jLabel1.setMinimumSize(new java.awt.Dimension(93, 96));
+        jLabel1.setName(""); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(90, 90));
+        ViewRecordsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, 790, 320));
+
+        panelmove.setOpaque(false);
+
+        javax.swing.GroupLayout panelmoveLayout = new javax.swing.GroupLayout(panelmove);
+        panelmove.setLayout(panelmoveLayout);
+        panelmoveLayout.setHorizontalGroup(
+            panelmoveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(ViewRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE))
+        panelmoveLayout.setVerticalGroup(
+            panelmoveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 181, Short.MAX_VALUE)
         );
+
+        ViewRecordsPanel.add(panelmove, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("MotorPH");
+        ViewRecordsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 620, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\T480\\Downloads\\MotorPH LOGO.png")); // NOI18N
+        jLabel3.setOpaque(true);
+        ViewRecordsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -210, 1700, 1360));
+
+        add(ViewRecordsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1363, 899));
     }// </editor-fold>//GEN-END:initComponents
 
     private void input_employeeNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_employeeNumberActionPerformed
@@ -458,10 +488,6 @@ public class EmployeeProfile extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_contact_numberActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void supervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supervisorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_supervisorActionPerformed
@@ -482,14 +508,20 @@ public class EmployeeProfile extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_basicpayActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        
+        this.hide();
+        MainPageEMployee frm = new MainPageEMployee();
+        setVisible(true);
+        MainPageEMployee.getFrames();
+        
+    }//GEN-LAST:event_backButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ViewRecordsPanel;
     private javax.swing.JTextArea address;
+    private javax.swing.JButton backButton;
     private javax.swing.JTextField basicpay;
     private javax.swing.JTextField clo_allowance;
     private javax.swing.JTextField contact_number;
@@ -498,8 +530,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
     private javax.swing.JTextField grossMonthly;
     private javax.swing.JTextField hdmf_no;
     private javax.swing.JTextField input_employeeNumber;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -509,6 +540,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -516,6 +548,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -523,6 +556,7 @@ public class EmployeeProfile extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField marital_status1;
+    private javax.swing.JPanel panelmove;
     private javax.swing.JTextField ph_allowance;
     private javax.swing.JTextField philhealth_no;
     private javax.swing.JTextField position;

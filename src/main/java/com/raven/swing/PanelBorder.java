@@ -6,10 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class PanelBorder extends javax.swing.JPanel {
 
     /**

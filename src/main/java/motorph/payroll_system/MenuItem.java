@@ -17,10 +17,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class MenuItem extends JButton{
 
     /**

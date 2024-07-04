@@ -19,10 +19,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class menu extends JComponent{
 
     /**

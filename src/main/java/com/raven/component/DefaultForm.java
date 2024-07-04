@@ -4,10 +4,7 @@
  */
 package com.raven.component;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class DefaultForm extends javax.swing.JPanel {
 
    

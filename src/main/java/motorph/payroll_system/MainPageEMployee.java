@@ -14,19 +14,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import motorph.payroll_system.Login.GlobalVariables;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class MainPageEMployee extends javax.swing.JFrame {
     
     private String employeenumber;
     private static String actionMode;
     
-    
-    
-    
-    
+  
     public MainPageEMployee() {
         initComponents();
         
@@ -60,8 +54,14 @@ public class MainPageEMployee extends javax.swing.JFrame {
     checkEmployeeAccess(this.employeenumber);
         
     }
-    
-    
+//    
+//    private void backButtonActionPerformed(java.awt.ActionEvent evt) {
+//        this.toBack();
+//        EmployeeProfile newframe = new EmployeeProfile();
+//        newframe.setVisible(true);
+//        newframe.toFront();
+//    }
+//    
     public class SharedState {
     public static String actionMode = "";
     }    
@@ -89,7 +89,7 @@ public class MainPageEMployee extends javax.swing.JFrame {
     }
 }
      private void checkEmployeeAccess(String employeenumber) {
-        String sql = "SELECT access FROM login.\"login_credentials\" WHERE \"employeeno\" = ?";
+        String sql = "SELECT access FROM \"login_credentials\" WHERE \"employeeno\" = ?";
 
         try (Connection connection = DatabaseConnection.connect();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {

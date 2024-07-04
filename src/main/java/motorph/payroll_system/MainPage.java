@@ -14,10 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import motorph.payroll_system.Login.GlobalVariables;
 
-/**
- *
- * @author Ruel Rey
- */
+
 public class MainPage extends javax.swing.JFrame {
     
     private String employeenumber;
@@ -75,6 +72,7 @@ public class MainPage extends javax.swing.JFrame {
      this.employeenumber = GlobalVariables.employeenumber;
     System.out.println("employeenumber in MainPage constructor: " + this.employeenumber);
     checkEmployeeAccess(this.employeenumber);
+    
         
     }
     
@@ -106,7 +104,7 @@ public class MainPage extends javax.swing.JFrame {
     }
 }
      private void checkEmployeeAccess(String employeenumber) {
-        String sql = "SELECT access FROM login.\"login_credentials\" WHERE \"employeeno\" = ?";
+        String sql = "SELECT access FROM \"login_credentials\" WHERE \"employeeno\" = ?";
 
         try (Connection connection = DatabaseConnection.connect();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {

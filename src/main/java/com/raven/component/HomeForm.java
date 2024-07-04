@@ -11,10 +11,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import motorph.payroll_system.DatabaseConnection;
 import motorph.payroll_system.Login;
-/**
- *
- * @author Ruel Rey
- */
+
 public class HomeForm extends javax.swing.JPanel {
 
     private final String employeenumber;
@@ -26,7 +23,7 @@ public class HomeForm extends javax.swing.JPanel {
     System.out.println("this is: " + this.employeenumber);
     
     try (Connection connection = DatabaseConnection.connect()) {
-    String sql = "SELECT * FROM login.\"EmployeeDetails\" WHERE \"EmployeeNo\" = ?";
+    String sql = "SELECT * FROM employeedetails WHERE employeeno = ?";
     
     try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
         long employeeNumber = Long.parseLong(employeenumber);
@@ -67,7 +64,7 @@ public class HomeForm extends javax.swing.JPanel {
 
         name.setFont(new java.awt.Font("Segoe UI Emoji", 1, 50)); // NOI18N
         name.setForeground(new java.awt.Color(255, 51, 51));
-        name.setText("jLabel3");
+        name.setText("To MotorPH");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

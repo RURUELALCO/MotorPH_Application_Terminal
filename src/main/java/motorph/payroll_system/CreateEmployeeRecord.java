@@ -34,11 +34,11 @@ public class CreateEmployeeRecord {
     private Double riceSubsidy;
     private Double phoneAllowance;
      
-    private Double GrossSemimonthlyRate;
+    private Double grosssemimonthlyrate;
     private Double HourlyRate;
 
     // Constructor
-   public CreateEmployeeRecord(int employeenumber, String lastname, String firstname, Date birthday, String address, String phoneNumber, String currentPosition, String status, String tinNumber, String pagIbigNumber, String philhealthNumber, String sssNumber, String immediateSupervisor, Double basicSalary, Double clothingAllowance, Double riceSubsidy, Double phoneAllowance, Double GrossSemimonthlyRate, Double HourlyRate) {
+   public CreateEmployeeRecord(int employeenumber, String lastname, String firstname, Date birthday, String address, String phoneNumber, String currentPosition, String status, String tinNumber, String pagIbigNumber, String philhealthNumber, String sssNumber, String immediateSupervisor, Double basicSalary, Double clothingAllowance, Double riceSubsidy, Double phoneAllowance, Double grosssemimonthlyrate, Double HourlyRate) {
         
         this.employeenumber = employeenumber;
         this.lastname = lastname;
@@ -59,7 +59,7 @@ public class CreateEmployeeRecord {
         this.phoneAllowance = phoneAllowance;
       
 
-        this.GrossSemimonthlyRate = GrossSemimonthlyRate;
+        this.grosssemimonthlyrate = grosssemimonthlyrate;
         this.HourlyRate = HourlyRate;
     }
 
@@ -82,7 +82,7 @@ public class CreateEmployeeRecord {
     public Double getRiceSubsidy() { return riceSubsidy; }
     public Double getPhoneAllowance() { return phoneAllowance; }
      
-    public Double getGrossSemimonthlyRate() { return GrossSemimonthlyRate; }
+    public Double getgrosssemimonthlyrate() { return grosssemimonthlyrate; }
     public Double getHourlyRate() { return HourlyRate; }
 
 // Setters
@@ -104,7 +104,7 @@ public class CreateEmployeeRecord {
     public void setRiceSubsidy(Double riceSubsidy) { this.riceSubsidy = riceSubsidy; }
     public void setPhoneAllowance(Double phoneAllowance) { this.phoneAllowance = phoneAllowance; }
    
-    public void setGrossSemimonthlyRate(Double GrossSemimonthlyRate) { this.GrossSemimonthlyRate = GrossSemimonthlyRate; }
+    public void setgrosssemimonthlyrate(Double grosssemimonthlyrate) { this.grosssemimonthlyrate = grosssemimonthlyrate; }
     public void setHourlyRate(Double HourlyRate) { this.HourlyRate = HourlyRate; }
     
     // Method to retrieve the maximum existing employee number from the database
@@ -117,8 +117,8 @@ public class CreateEmployeeRecord {
     int response = JOptionPane.showConfirmDialog(null, "Do you want to save this data?", "Confirm Save", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
     if (response == JOptionPane.YES_OPTION) {
-        String sql = "INSERT INTO login.\"EmployeeDetails\"(\n" +
-                     "    \"EmployeeNo\", lastname, firstname, birthday, address, phone_number, sss_number, philhealth_number, tin_number, pag_ibig_number, status, current_position, immediate_supervisor, basic_salary, rice_subsidy, phone_allowance, clothing_allowance, \"GrossSemimonthlyRate\", \"HourlyRate\")\n" +
+        String sql = "INSERT INTO employeedetails(\n" +
+                     "    \"employeeno\", lastname, firstname, birthday, address, phone_number, sss_number, philhealth_number, tin_number, pag_ibig_number, status, current_position, immediate_supervisor, basic_salary, rice_subsidy, phone_allowance, clothing_allowance, \"grosssemimonthlyrate\", \"HourlyRate\")\n" +
                      "    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try (Connection connection = DatabaseConnection.connect();
@@ -141,7 +141,7 @@ public class CreateEmployeeRecord {
             pstmt.setDouble(15, employee.getRiceSubsidy());
             pstmt.setDouble(16, employee.getPhoneAllowance());
             pstmt.setDouble(17, employee.getClothingAllowance());
-            pstmt.setDouble(18, employee.getGrossSemimonthlyRate());
+            pstmt.setDouble(18, employee.getgrosssemimonthlyrate());
             pstmt.setDouble(19, employee.getHourlyRate());
 
             int rowsAffected = pstmt.executeUpdate();
